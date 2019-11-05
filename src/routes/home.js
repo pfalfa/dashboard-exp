@@ -10,11 +10,13 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-  res.render('login', state)
+  if (req.isAuthenticated()) return res.redirect('users/dashboard')
+  return res.render('login', state)
 })
 
 router.get('/register', (req, res) => {
-  res.render('signup', state)
+  if (req.isAuthenticated()) return res.redirect('users/dashboard')
+  return res.render('signup', state)
 })
 
 router.post(
