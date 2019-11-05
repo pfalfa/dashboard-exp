@@ -39,27 +39,25 @@ router.post(
   }
 )
 
-/** sign up */
-
-// router.post('/signup', (req, res) => {
-//   const { email, passphrase } = req.body
-//   User.create(email, passphrase)
-//     .then(result => {
-//       if (!result.success) res.render('signup', result)
-//       else {
-//         User.login(email, passphrase)
-//           .then(result => {
-//             const user = { ...result.data }
-//             req.login(user, err => {
-//               if (err) res.render('signup', { success: false, message: err })
-//               else res.redirect('users/dashboard')
-//             })
-//           })
-//           .catch(err => console.error(err))
-//       }
-//     })
-//     .catch(err => console.error(err))
-// })
+router.post('/signup', (req, res) => {
+  const { email, passphrase } = req.body
+  User.create(email, passphrase)
+    .then(result => {
+      if (!result.success) res.render('signup', result)
+      else {
+        User.login(email, passphrase)
+          .then(result => {
+            const user = { ...result.data }
+            req.login(user, err => {
+              if (err) res.render('signup', { success: false, message: err })
+              else res.redirect('users/dashboard')
+            })
+          })
+          .catch(err => console.error(err))
+      }
+    })
+    .catch(err => console.error(err))
+})
 
 // /** forgot password */
 // router.get('/forgot', (req, res) => {
