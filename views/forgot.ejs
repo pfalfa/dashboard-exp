@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/metahead.ejs') -%>
+    <title>Forgot Password</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <section id="full-height">
+        <div id="loginForm">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <p>Recovery Your Password</p>
+
+                <% if(!success && message){ %>
+                <div class="notification is-danger">
+                  <button class="delete"></button>
+                  <small><%= message %></small>
+                </div>
+                <% } %>
+
+                <form action="/forgot" method="POST">
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input" type="email" placeholder="Email" name="email" value="user@email.com" />
+                      <span class="icon is-small is-left"> <i class="fa fa-envelope"></i> </span>
+                    </p>
+                  </div>
+
+                  <div class="field">
+                    <p class="control">
+                      <button class="button is-info" type="submit">Submit</button>
+                      <button class="button is-light" type="button" onclick="location.href='/login';">Back To Log in</button>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

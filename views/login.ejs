@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/metahead.ejs') -%>
+    <title>Login</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <section id="full-height">
+        <div id="loginForm">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <p>Login to Proceed</p>
+
+                <form action="/login" method="POST">
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input" type="email" placeholder="Email" name="email" value="developer@email.com" />
+                      <span class="icon is-small is-left"> <i class="fa fa-envelope"></i> </span>
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input" placeholder="Passphrase" name="passphrase" value="P@ssw0rd" />
+                      <span class="icon is-small is-left"> <i class="fa fa-lock"></i> </span>
+                    </p>
+                  </div>
+
+                  <!-- <div class="field">
+                    <p class="control">
+                      <label class="checkbox">
+                        <input type="checkbox" name="remember" checked />
+                        Remember me
+                      </label>
+                    </p>
+                  </div> -->
+
+                  <% if(!success && message){ %>
+                  <div class="notification is-danger">
+                    <button class="delete"></button>
+                    <small><%= message %></small>
+                  </div>
+                  <% } %>
+
+                  <div class="field">
+                    <p class="control">
+                      <button class="button is-info" type="submit">Log in</button>
+                      <button class="button is-white" type="button" onclick="location.href='/';">Back To Home</button>
+                    </p>
+                  </div>
+
+                  <!-- <div class="field">
+                    <p class="control">
+                      <a href="/forgot">Forgot Password</a>
+                    </p>
+                  </div> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

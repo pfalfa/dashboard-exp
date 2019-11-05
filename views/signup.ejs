@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/metahead.ejs') -%>
+    <title>Register</title>
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') -%>
+
+    <div id="wrapper">
+      <section id="full-height">
+        <div id="loginForm">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <p>Create Account</p>
+
+                <% if(!success && message){ %>
+                <div class="notification is-danger">
+                  <button class="delete"></button>
+                  <small><%= message %></small>
+                </div>
+                <% } %>
+
+                <form action="/signup" method="POST">
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input" type="email" placeholder="Email" name="email" value="user@email.com" />
+                      <span class="icon is-small is-left"> <i class="fa fa-envelope"></i> </span>
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input" placeholder="Passphrase" name="passphrase" value="papa pipi pupu pepu pepu" />
+                      <span class="icon is-small is-left"> <i class="fa fa-lock"></i> </span>
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control">
+                      <button class="button is-info" type="submit">Sign up</button>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
