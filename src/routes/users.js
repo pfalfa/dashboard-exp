@@ -7,8 +7,6 @@ router.get('/', (req, res) => {
 
 router.get('/dashboard', (req, res) => {
   if (req.isAuthenticated()) {
-    // console.log('==req.', req)
-
     const user = { email: req.user.alias, pub: req.user.pub, epub: req.user.epub }
     return res.render('dashboard', user)
   }
